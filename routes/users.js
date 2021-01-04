@@ -7,14 +7,13 @@ router.use(bodyParser.json());
 
 
 /* GET users listing. */
-router.get('/', function (req, res, next) {
-  res.send('Welcome to Bwyd database');
-});
+// router.get('/', function (req, res, next) {
+//   res.send('Welcome to Bwyd database');
+// });
 
-router.get("/bwyd", (req, res) => {
-  db("SELECT * FROM users ORDER BY userid ASC;SELECT * FROM items ORDER BY itemid ASC;SELECT * FROM orders ORDER BY orderid ASC;")
-    .then(
-      results => res.send(results.data))
+router.get("/", (req, res) => {
+  db("SELECT * FROM users ORDER BY userid ASC;")
+    .then(results => res.send(results.data))
     .catch(res => res.status(500).send(err));
 
 });
