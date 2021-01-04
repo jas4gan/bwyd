@@ -1,6 +1,6 @@
 # bwyd Full Stack App
 
-In this repository, you will use build a full stack Bwyd app using Vue, Node/Express, and MySQL.
+In this repository, you will use build a full stack bwyd app using Vue, Node/Express, and MySQL.
 
 ## Objectives
 
