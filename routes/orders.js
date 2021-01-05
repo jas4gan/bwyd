@@ -11,7 +11,14 @@ router.get("/", (req, res) => {
         .catch(res => res.status(500).send(err));
 
 });
-//(userid,trade,delivery,ddate,itemid,qty)
+
+router.get("/bwyd/:id", (req, res) => {
+    db(`SELECT * FROM orders WHERE orderid= ${req.params["id"]};`)
+        .then(results => res.send(results.data))
+        .catch(res => res.status(500).send(err));
+
+});
+
 router.post("/bwyd", (req, res) => {
     db(`INSERT INTO orders (userid, trade, delivery, ddate, itemid, qty) VALUES (${req.body.userid}, ${req.body.trade}, ${req.body.delivery}, ${req.body.ddate},${req.body.itemid}),${req.body.qty};`)
         .then(results => {
