@@ -43,10 +43,10 @@ Run `node model/database.js` in your **TERMINAL**, in the **root** folder of you
 
 ### Run Your Development Servers
 
-- Run `yarn start` in project directory to start the Express server on port 5000
-- `cd client` and run `yarn start` to start client server in development mode with hot reloading in port 3000.
+- Run `npm start` in project directory to start the Express server on port 5000
+- `cd client` and run `npm start` to start client server in development mode with hot reloading in port 8080.
 - Client is configured so all API calls will be proxied to port 5000 for a smoother development experience. Yay!
-- You can test your client app in `http://localhost:3000`
+- You can test your client app in `http://localhost:8080`
 - You can test your API in `http://localhost:5000/api`
 
 ## Basic Requirements
@@ -59,43 +59,10 @@ Suggested Process:
 - Use that query to finish the endpoint in `routes/api.js`.
 - Test your endpoint using Postman.
 
-To Do:
-
-- [ ] Use Postman to confirm that you have completed these correctly
-- [ ] GET `/api/bwyd` should retrieve all resources.
-  - This route is almost complete!
-- [ ] POST `/api/bwyd` should create a new resource.
-  - To test that your query is correct, check to see if your new resource exists using `mysql`.
-  - To test your route, use Postman to see if GET `api/bwyd` returns your new resources.
-- [ ] PUT `/api/bwyd/:id` should replace a resource.
-  - To test that your query is correct, check to see if your updated resource exists using `mysql`.
-  - To test your route, use Postman to see if GET `api/bwyd` includes your updated resources.
-- [ ] DELETE `/api/bwyd/:id` should delete a resource.
-  - To test that your query is correct, check to see if your resource was deleted using `mysql`.
-  - To test your route, use Postman to see if GET `api/bwyd` does not include your new resources.
-
 ### 2. Finish the front end
-
-- [ ] Add functionality.
-  - Clicking on "Chef" should show the kitchen view, and unclick on "Chef" should show the homepage view.
-
-- [ ] Add styling.
-  - The current page the user is on should be clear. Add some conditional styling to the button elements to show this.
 
 ![Homepage View](support/homepage_view.png)
 ![Kitchen View](support/kitchen_view.png)
-
-
-- [ ] Add functionality.
-  - This table should accept a URL, a description, and so on.
-  - This table row should have a "add", "delete" and "edit" button.
-  - After clicking the button, the image should appear on the page in the Homepage view.
-- [ ] Add styling.
-  - Everything should be center-aligned. See attached design.
-- [ ] Finish the editItem method so it calls the server.
-- [ ] Finish the deleteItem method so it calls the server.
-- [ ] Add styling.
-- [ ] Play with the styling so this looks as professional as possible!
 
 ## Resources
 
@@ -108,4 +75,4 @@ To Do:
 
 ## Notes
 
-_This is a student project that was created at [CodeOp](http://CodeOp.tech), a full stack development bootcamp in Barcelona._
+_This is a student project that was created at [CodeOp](http://CodeOp.tech) & [Rebound](https://www.rebound.asia/), a full stack development bootcamp in Barcelona._
