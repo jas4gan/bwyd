@@ -94,22 +94,22 @@ router.get("/orders/:id", (req, res) => {
         .catch(res => res.status(500).send(err));
 
 });
-
-// router.post("/orders", (req, res) => {
-//     db(`INSERT INTO orders (userid, trade, delivery, ddate, itemid, qty) VALUES (${req.body.userid}, ${req.body.trade}, ${req.body.delivery}, ${req.body.ddate},${req.body.itemid}),${req.body.qty};`)
-//         .then(results => {
-//             const data = {
-//                 userid: req.body.userid,
-//                 trade: req.body.trade,
-//                 delivery: req.body.delivery,
-//                 ddate: req.body.ddate,
-//                 itemid: req.body.itemid,
-//                 qty: req.body.qty
-//             };
-//             return res.send(data);
-//         })
-//         .catch(res => res.status(500).send(err));
-// });
+//db(`INSERT INTO items (itemname, price, available, userid, free_items) VALUES (${JSON.stringify(req.body.itemname)}, ${req.body.price}, ${req.body.available}, ${req.body.userid},${req.body.free_items});`)
+// insert into orders (userid,trade,delivery,itemid,qty) values ('1','1','0','3','5');
+router.post("/orders", (req, res) => {
+    db(`INSERT INTO orders (userid, trade, delivery, itemid, qty) VALUES (${req.body.userid}, ${req.body.trade}, ${req.body.delivery},${req.body.itemid},${req.body.qty});`)
+        .then(results => {
+            const data = {
+                userid: req.body.userid,
+                trade: req.body.trade,
+                delivery: req.body.delivery,
+                itemid: req.body.itemid,
+                qty: req.body.qty
+            };
+            return res.send(data);
+        })
+        .catch(res => res.status(500).send(err));
+});
 
 router.delete("/orders/:id", (req, res) => {
     db(`DELETE FROM orders WHERE id = ${req.params["id"]};`)
