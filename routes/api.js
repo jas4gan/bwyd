@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
 const bodyParser = require("body-parser");
 const db = require("../model/helper");
 
@@ -94,8 +94,7 @@ router.get("/orders/:id", (req, res) => {
         .catch(res => res.status(500).send(err));
 
 });
-//db(`INSERT INTO items (itemname, price, available, userid, free_items) VALUES (${JSON.stringify(req.body.itemname)}, ${req.body.price}, ${req.body.available}, ${req.body.userid},${req.body.free_items});`)
-// insert into orders (userid,trade,delivery,itemid,qty) values ('1','1','0','3','5');
+
 router.post("/orders", (req, res) => {
     db(`INSERT INTO orders (userid, trade, delivery, itemid, qty) VALUES (${req.body.userid}, ${req.body.trade}, ${req.body.delivery},${req.body.itemid},${req.body.qty});`)
         .then(results => {
