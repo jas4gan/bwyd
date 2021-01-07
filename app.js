@@ -3,26 +3,37 @@ let express = require('express');
 let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
-
-let indexRouter = require('./routes/index');
-let apiRouter = require('./routes/api');
-
+let cors = require('cors');
 
 let app = express();
 
+let apiRouter = require('./routes/api');
+
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+
+
+app.get('/', (req, res, next) => {
+  res.send('Access the API at path /api');
+});
+
 app.use('/api', apiRouter);
+
+
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
 });
+
 
 // error handler
 app.use(function (err, req, res, next) {

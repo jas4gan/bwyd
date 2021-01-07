@@ -1,31 +1,43 @@
 <template>
   <div>
-    <form @submit="addItem">
-      <input
-        type="text"
-        v-model="itemname"
-        name="itemname"
-        placeholder="Add Item..."
-      />
-      <input type="submit" value="Submit" class="btn btn-secondary" />
-    </form>
+    <b-form @submit="addItem">
+      <b-form-group label="Item Name:">
+        <b-form-input
+          type="text"
+          v-model="itemname"
+          name="itemname"
+          placeholder="Add Item..."
+        />
+      </b-form-group>
+      <b-form-group label="URL:">
+        <b-form-input
+          type="text"
+          name="url"
+          v-model="url"
+          placeholder="Add URL..."
+      /></b-form-group>
+      <b-form-group label="URL:">
+        <b-button type="submit" variant="primary">Submit</b-button>
+      </b-form-group>
+    </b-form>
   </div>
 </template>
 
 <script>
-// import uuid from "uuid";
+import uuid from "uuid";
 export default {
   name: "AddItem",
   data() {
     return {
       itemname: "",
+      url: "",
     };
   },
   methods: {
     addItem(e) {
       e.preventDefault();
       const newItem = {
-        // itemid: uuid.v4(),
+        itemid: uuid.v4(),
         itemname: this.itemname,
         available: true,
       };
@@ -39,14 +51,4 @@ export default {
 </script>
 
 <style scoped>
-form {
-  display: flex;
-}
-input[type="text"] {
-  flex: 10;
-  padding: 5px;
-}
-input[type="submit"] {
-  flex: 2;
-}
 </style>

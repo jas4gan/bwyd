@@ -9,60 +9,98 @@
 <script>
 import ItemList from "@/components/ItemList";
 import AddItem from "@/components/AddItem";
-// import axios from "axios";
+
 export default {
   name: "home",
   components: {
     ItemList,
     AddItem,
   },
+  // computed: {
+  //   itemList() {
+  //     console.log("computed");
+  //     return this.ItemList;
+  //   },
+  // },
+  // mounted() {
+  //   fetch("/api/items", {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log("data", data);
+  //     })
+  //     .catch((err) => console.log(err));
+  //   console.log("Created", this.ItemList);
+  // },
   data() {
     return {
       itemList: [
-        {
-          itemname: "item one",
-          url:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm0OprMbD5BzsQE65g0SQBHxIog7T2CxSdpQ&usqp=CAU",
-          available: true,
-        },
+        // {
+        //   itemid: 1,
+        //   itemname: "item one",
+        //   url:
+        //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm0OprMbD5BzsQE65g0SQBHxIog7T2CxSdpQ&usqp=CAU",
+        //   available: true,
+        // },
+        // {
+        //   itemid: 2,
+        //   itemname: "item two",
+        //   url:
+        //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm0OprMbD5BzsQE65g0SQBHxIog7T2CxSdpQ&usqp=CAU",
+        //   available: true,
+        // },
+        // {
+        //   itemid: 3,
+        //   itemname: "item three",
+        //   url:
+        //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm0OprMbD5BzsQE65g0SQBHxIog7T2CxSdpQ&usqp=CAU",
+        //   available: true,
+        // },
+        // {
+        //   itemid: 4,
+        //   itemname: "item four",
+        //   url:
+        //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm0OprMbD5BzsQE65g0SQBHxIog7T2CxSdpQ&usqp=CAU",
+        //   available: true,
+        // },
       ],
     };
   },
+  // beforeMount() {
+  //   this.getItem();
+  // },
   methods: {
-    // deleteItem(itemid) {
-    //   axios
-    //     .delete(`http://localhost:5000/api/items/${id}`)
-    //     .then(
-    //       (res) =>
-    //         (this.itemList = this.itemList.filter(
-    //           (item) => item.itemid !== itemid
-    //         ))
-    //     )
-    //     .catch((err) => console.log(err));
-    // },
-    // addItem(newItem) {
-    //   const { itemname, available } = newItem;
-    //   axios
-    //     .post("http://localhost:5000/api/items", {
-    //       itemname,
-    //       available,
-    //     })
-    //     .then((res) => (this.itemList = [...this.itemList, res.data]))
-    //     .catch((err) => console.log(err));
-    // },
+    getItemList() {
+      fetch("/api/items", {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      })
+        .then((response) => {
+          console.log("res", response);
+          return response.json();
+        })
+        .then((data) => {
+          // console.log(data, "data");
+          // console.log(">>>>>>>>>>>>>>>",data[0].itemid);
+          this.itemList = data;
+        })
+        .catch((err) => console.log(err));
+    },
+    deleteItem(itemid) {
+      this.itemList = this.itemList.filter((item) => item.itemid !== itemid);
+    },
+    addItem(newItem) {
+      this.itemList = [...this.itemList, newItem];
+    },
   },
-  // created() {
-  //   axios
-  //     .get("http://localhost:5000/api/items")
-  //     // .then((res) => res.json())
-  //     .then((res) => (this.itemList = res.data))
-  //     .catch((err) => console.log(err));
-  // },
-  // mounted() {
-  //   fetch("https://jsonplaceholder.typicode.com/posts/1")
-  //     .then((response) => response.json())
-  //     .then((json) => console.log(json));
-  // },
+  mounted() {
+    console.log("mounted", this.itemList);
+    this.getItemList();
+  },
 };
 </script>
 
@@ -71,6 +109,7 @@ export default {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  background-color: teal;
 }
 body {
   font-family: Arial, Helvetica, sans-serif;

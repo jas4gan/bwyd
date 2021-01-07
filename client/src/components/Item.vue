@@ -1,11 +1,22 @@
 <template>
   <div class="item" v-bind:class="{ 'not-available': !item.available }">
-    <p>
+    <div>
+      <img :src="item.url" alt="" width="200px" height="150px" />
       <input type="checkbox" v-on:change="markNotAvailable" />
       {{ item.itemname }}
-      <img :src="item.url" alt="" width="200px" height="150px" />
-      <button @click="$emit('del-item', item.itemid)" class="del">x</button>
-    </p>
+      <!-- <b-form-checkbox
+        v-model="available"
+        value="!item.available"
+        unchecked-value="item.available"
+        v-on:change="markNotAvailable"
+      >
+        {{ item.itemname }}</b-form-checkbox
+      > -->
+      <!-- v-on:change="markNotAvailable" -->
+      <b-button variant="danger" @click="$emit('del-item', item.itemid)"
+        >x</b-button
+      >
+    </div>
   </div>
 </template>
 
@@ -24,12 +35,13 @@ export default {
 <style scoped>
 .item {
   border: 1px solid #ccc;
-  background: #41b883;
+  background: teal;
   padding: 1rem;
   border-radius: 5px;
   text-align: center;
   position: relative;
   cursor: pointer;
+  border-radius: 20px;
   /* background: #f4f4f4;
   padding: 10px;
   border-bottom: 1px #ccc dotted; */
