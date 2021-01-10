@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <h1>Item List</h1>
+    <h1>Bwyd</h1>
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/bwyd">About</router-link>

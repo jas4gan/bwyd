@@ -84,8 +84,6 @@ export default {
           return response.json();
         })
         .then((data) => {
-          // console.log(data, "data");
-          // console.log(">>>>>>>>>>>>>>>",data[0].itemid);
           this.itemList = data;
         })
         .catch((err) => console.log(err));
