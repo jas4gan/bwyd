@@ -1,6 +1,6 @@
 <template>
   <div class="itemList">
-    <div v-bind:key="item.itemid" v-for="item in itemList">
+    <div v-for="(item, i) in itemList" v-bind:key="i">
       <Item v-bind:item="item" v-on:del-item="$emit('del-item', item.itemid)" />
     </div>
   </div>

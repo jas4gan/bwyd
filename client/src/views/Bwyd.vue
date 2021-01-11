@@ -10,10 +10,10 @@
 
       <hr class="my-4" />
 
-      <p>
+      <h2>
         This is a platform for exchanging, buying and gifting food to your local
         community.
-      </p>
+      </h2>
     </b-jumbotron>
   </div>
 </template>

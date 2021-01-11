@@ -56,9 +56,9 @@ export default {
         })
         .catch((err) => console.log(err));
     },
-    addItem(newItem) {
-      this.itemList = [...this.itemList, newItem];
-    },
+    // addItem(newItem) {
+    //   this.itemList = [...this.itemList, newItem];
+    // },
     addItem(newItem) {
       const { itemname, url, price, available, userid, free_items } = newItem;
 

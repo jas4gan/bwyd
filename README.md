@@ -55,6 +55,7 @@ Run `node model/database.js` in your **TERMINAL**, in the **root** folder of you
 Suggested Process:
 
 - Try and write the correct query in `mysql`.
+  ![Database View](support/database.png)
 - Use that query to finish the endpoint in `routes/api.js`.
 - Test your endpoint using Postman.
 
@@ -62,11 +63,6 @@ Suggested Process:
 
 ![Homepage View](support/homepage_view.png)
 ![Kitchen View](support/kitchen_view.png)
-
-### 3. Optional
-
-- Add feature for Additem, DeleteItem.
--
 
 ## Resources
 

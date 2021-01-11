@@ -53,7 +53,6 @@
 </template>
 
 <script>
-// import uuid from "uuid";
 export default {
   name: "AddItem",
   data() {
@@ -70,7 +69,6 @@ export default {
     addItem(e) {
       e.preventDefault();
       const newItem = {
-        // itemid: uuid.v4(),yes auto increment
         itemname: this.itemname,
         url: this.url,
         price: this.price,
@@ -92,4 +90,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+h3 {
+  padding: 2rem;
+}
+</style>
