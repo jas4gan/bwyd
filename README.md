@@ -19,7 +19,6 @@ Run `yarn` on root folder to install dependencies related to Express.
 
 `cd client` and run `yarn` install dependencies related to Vue.
 
-
 ### Database Prep
 
 Create `.env` file in project directory and add
@@ -63,6 +62,11 @@ Suggested Process:
 
 ![Homepage View](support/homepage_view.png)
 ![Kitchen View](support/kitchen_view.png)
+
+### 3. Optional
+
+- Add feature for Additem, DeleteItem.
+-
 
 ## Resources
 

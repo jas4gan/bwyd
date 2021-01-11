@@ -59,7 +59,7 @@ router.get("/items/:id", (req, res, next) => {
 
 });
 
-router.post("/items", (req, res, next) => {
+router.post("/items", (req, res, next) => {//
     db(`INSERT INTO items (itemname, url, price, available, userid, free_items) VALUES (${JSON.stringify(req.body.itemname)}, ${JSON.stringify(req.body.url)},${req.body.price}, ${req.body.available}, ${req.body.userid},${req.body.free_items});`)
         .then(results => {
             const data = {
@@ -76,7 +76,7 @@ router.post("/items", (req, res, next) => {
 });
 
 router.delete("/items/:id", (req, res, next) => {
-    db(`DELETE FROM items WHERE id = ${req.params["id"]};`)
+    db(`DELETE FROM items WHERE itemid = ${req.params["id"]};`)
         .then(results => res.send(results.data))
         .catch(err => res.status(500).send(err));
 });

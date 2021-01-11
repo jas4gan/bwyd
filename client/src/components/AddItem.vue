@@ -70,7 +70,7 @@ export default {
     addItem(e) {
       e.preventDefault();
       const newItem = {
-        // itemid: uuid.v4(),
+        // itemid: uuid.v4(),yes auto increment
         itemname: this.itemname,
         url: this.url,
         price: this.price,

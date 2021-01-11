@@ -12,6 +12,7 @@ import Item from "./Item.vue";
 export default {
   name: "ItemList",
   components: { Item },
+
   props: ["itemList"],
 };
 </script>
