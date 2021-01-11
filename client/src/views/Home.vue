@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <AddItem v-on:add-item="addItem" />
     <ItemList v-bind:itemList="itemList" v-on:del-item="deleteItem" />
+    <AddItem v-on:add-item="addItem" />
+
     <router-view />
   </div>
 </template>
@@ -38,36 +39,7 @@ export default {
   // },
   data() {
     return {
-      itemList: [
-        // {
-        //   itemid: 1,
-        //   itemname: "item one",
-        //   url:
-        //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm0OprMbD5BzsQE65g0SQBHxIog7T2CxSdpQ&usqp=CAU",
-        //   available: true,
-        // },
-        // {
-        //   itemid: 2,
-        //   itemname: "item two",
-        //   url:
-        //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm0OprMbD5BzsQE65g0SQBHxIog7T2CxSdpQ&usqp=CAU",
-        //   available: true,
-        // },
-        // {
-        //   itemid: 3,
-        //   itemname: "item three",
-        //   url:
-        //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm0OprMbD5BzsQE65g0SQBHxIog7T2CxSdpQ&usqp=CAU",
-        //   available: true,
-        // },
-        // {
-        //   itemid: 4,
-        //   itemname: "item four",
-        //   url:
-        //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm0OprMbD5BzsQE65g0SQBHxIog7T2CxSdpQ&usqp=CAU",
-        //   available: true,
-        // },
-      ],
+      itemList: [],
     };
   },
   // beforeMount() {
@@ -91,13 +63,52 @@ export default {
     deleteItem(itemid) {
       this.itemList = this.itemList.filter((item) => item.itemid !== itemid);
     },
+    // deleteTask(itemid) {
+    //   // delete item from database
+    //   fetch("/api/items/" + itemid, {
+    //     method: "DELETE",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //   })
+    //     .then((res) => {
+    //       this.itemList = this.itemList.filter(
+    //         (item) => item.itemid !== itemid
+    //       );
+    //     })
+    //     .catch((err) => console.log(err));
+    // },
+    // addItem(newItem) {
+    //   this.itemList = [...this.itemList, newItem];
+    // },
     addItem(newItem) {
-      this.itemList = [...this.itemList, newItem];
+      const { itemname, url, price, available, userid, free_items } = newItem;
+      fetch("/api/items", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+        body: JSON.stringify({
+          itemname,
+          url,
+          price,
+          available,
+          userid,
+          free_items,
+        }),
+      })
+        // Continue fetch request here
+        .then((res) => {
+          this.itemList = [...this.itemList, res.data];
+        })
+        .catch((err) => console.log(err));
     },
   },
   mounted() {
     console.log("mounted", this.itemList);
     this.getItemList();
+    this.addItem();
   },
 };
 </script>
@@ -107,10 +118,10 @@ export default {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: teal;
 }
 body {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.4;
+  background-color: rebeccapurple;
 }
 </style>
