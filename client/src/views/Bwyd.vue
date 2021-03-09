@@ -11,8 +11,8 @@
       <hr class="my-4" />
 
       <h2>
-        This is a platform for exchanging, buying and gifting food to your local
-        community.
+        This is a platform for sharing, exchanging, buying and gifting food to
+        your local community.
       </h2>
     </b-jumbotron>
   </div>

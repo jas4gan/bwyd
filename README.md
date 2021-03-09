@@ -10,17 +10,18 @@ In this repository, you will use build a full stack bwyd app using Vue, Node/Exp
 
 ## Setup
 
-Run `npm install` to install packages.
-Run `npm run serve` to run the development server.
-
 ### Dependencies
 
-Run `yarn` on root folder to install dependencies related to Express.
+Run `npm install` to install server-related dependencies.
+`cd client` and run `npm install` install client dependencies.
 
-`cd client` and run `yarn` install dependencies related to Vue.
+Run `npm run serve` to run the development server.
+Run `yarn` on root folder to install dependencies related to Express.
 
 ### Database Prep
 
+Type `mysql -u root -p` to access the MySQL CLI using your password.
+In the MySQL CLI, type `create database bwyd;` to create a database in MySQL.
 Create `.env` file in project directory and add
 
 ```
@@ -30,39 +31,22 @@ DB_PASS=YOUR_PASSWORD
 
 (replace `YOUR_PASSWORD` with your actual password)
 
-Alternatively, you can rename the provided `.env.example` file to `.env`.
-
-Type `mysql -u root -p` to access the MySQL CLI using your password.
-
-In the MySQL CLI, type `create database bwyd;` to create a database in MySQL.
-
-Run the following in the MySQL CLI: `ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'YOUR_PASSWORD';` (replace `YOUR_PASSWORD` with your actual password)
-
-Run `node model/database.js` in your **TERMINAL**, in the **root** folder of your project (not your MySQL CLI! Open a new terminal window for this). This will create a table called 'items' in your database.
+Run `npm run migrate` in the main folder of this repository, in a new terminal window. This will create 4 tables (grades, students, subjects and teachers) in your database. This will create 3 tables in your database.
 
 ### Run Your Development Servers
 
 - Run `npm start` in project directory to start the Express server on port 5000
-- `cd client` and run `npm start` to start client server in development mode with hot reloading in port 8080.
-- Client is configured so all API calls will be proxied to port 5000 for a smoother development experience. Yay!
+- `cd client` and run `npm run serve` to start client server in development mode on port 8080.
 - You can test your client app in `http://localhost:8080`
 - You can test your API in `http://localhost:5000/api`
 
-## Basic Requirements
+## Database schema
 
-### 1. Finish the routes
+- ![Database View](client/support/database.png)
 
-Suggested Process:
+## Homepage
 
-- Try and write the correct query in `mysql`.
-  ![Database View](support/database.png)
-- Use that query to finish the endpoint in `routes/api.js`.
-- Test your endpoint using Postman.
-
-### 2. Finish the front end
-
-![Homepage View](support/homepage_view.png)
-![Kitchen View](support/kitchen_view.png)
+![Homepage View](client/support/bwyd.png)
 
 ## Resources
 

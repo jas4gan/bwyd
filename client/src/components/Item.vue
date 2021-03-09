@@ -1,5 +1,5 @@
 <template>
-  <div class="item" v-bind:class="{ 'not-available': !item.available }">
+  <div class="item m-2" v-bind:class="{ 'not-available': !item.available }">
     <div>
       <img
         :src="item.url"
@@ -35,13 +35,12 @@ export default {
 
 <style scoped>
 .item {
-  border: 1px solid #ccc;
-  background: rebeccapurple;
+  border: none;
+  background: pink;
   padding: 1rem;
-  border-radius: 5px;
   text-align: center;
-  position: relative;
-  cursor: pointer;
+  /* position: relative;
+  cursor: pointer; */
   border-radius: 20px;
   /* background: #f4f4f4;
   padding: 10px;

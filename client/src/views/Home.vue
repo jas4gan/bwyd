@@ -50,6 +50,7 @@ export default {
         },
       })
         .then((res) => {
+          console.log(res);
           this.itemList = this.itemList.filter(
             (item) => item.itemid !== itemid
           );
@@ -103,6 +104,6 @@ export default {
 body {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.4;
-  background-color: rebeccapurple;
+  background-color: rgb(83, 196, 175);
 }
 </style>
